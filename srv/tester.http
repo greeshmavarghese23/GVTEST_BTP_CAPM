@@ -1,0 +1,75 @@
+###Get the service document
+http://localhost:4004/odata/v4/CatalogService/
+###Get service metadata document
+http://localhost:4004/odata/v4/CatalogService/$metadata
+
+###Get all employee data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+
+###Create New Employee with our data - POST
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+
+   {
+      //"ID": "02BD2137-0890-1EEA-A6C2-BB55C197C7FB",
+      "nameFirst": "Terrin",
+      "nameMiddle": "Richard",
+      "nameLast": "Thamban",
+      "nameInitials": null,
+      "sex": "M",
+      "language": "E",
+      "phoneNumber": null,
+      "email": "terrin.max@itelo.info",
+      "loginName": "FALLF",
+      "Currency_code": "USD",
+      "Country_code": null,
+      "salaryAmount": 100000,
+      "accountNumber": "8877665544",
+      "bankId": "AXIS",
+      "bankName": "My Bank of San Francisco"
+    }
+###Get the employee data which is just created
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/1714e663-1ee0-4e41-94d6-2f77536990dc
+
+###Update the employee just created
+PATCH http://localhost:4004/odata/v4/CatalogService/EmployeeSet/1714e663-1ee0-4e41-94d6-2f77536990dc
+Content-Type: application/json
+
+{
+   "salaryAmount":10000,
+   "Currency_code": "EUR"
+}
+
+
+
+
+###Get SIngle Employee data by ID(KEY)
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/02BD2137-0890-1EEA-A6C2-BB55C197A7FB
+### Get the total count of employees
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+### Pagination
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2&$skip=6
+
+###Get all Products data
+http://localhost:4004/odata/v4/CatalogService/Products
+
+###Load single product
+http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26EC8052
+
+###Load Order Data
+http://localhost:4004/odata/v4/CatalogService/Products/74867AD200E41EDBA5D8B06B26EC8052/To_Items
+
+###Get Single PO value
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC2C052
+###Get Single Po
+POST http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC2C052/CatalogService.boost
+Content-Type: application/json
+
+{}
+###Get Function data for largest order
+http://localhost:4004/odata/v4/CatalogService/largestOrder()
+
+
+
+
+
